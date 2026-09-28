@@ -1,0 +1,96 @@
+:root {
+  --red: #d90429;
+  --red-dark: #a80320;
+  --ink: #0a0a0a;
+  --paper: #ffffff;
+  --grey: #6b6b6b;
+  --line: #d9d9d9;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+
+.page { min-height: 100vh; display: flex; flex-direction: column; }
+
+.top {
+  background: var(--ink); color: #fff;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 32px; border-bottom: 4px solid var(--red);
+}
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: .2px; }
+.mark { width: 14px; height: 14px; background: var(--red); display: inline-block; }
+.meta { font-size: 13px; color: #b5b5b5; }
+
+.grid {
+  flex: 1; width: 100%; max-width: 1180px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 40px 32px;
+}
+.panel { min-width: 0; }
+h1 { font-size: 40px; line-height: 1.1; margin: 0 0 16px; letter-spacing: -1px; }
+.lede { color: var(--grey); line-height: 1.6; margin: 0 0 28px; max-width: 46ch; }
+
+form { display: flex; flex-direction: column; gap: 18px; }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; }
+.opt { color: var(--grey); font-weight: 400; margin-left: 6px; }
+input, select, textarea {
+  font: inherit; font-weight: 400; padding: 11px 12px; color: var(--ink);
+  background: #fff; border: 1.5px solid var(--ink); border-radius: 0; outline: none;
+}
+textarea { resize: vertical; }
+input:focus, select:focus, textarea:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(217,4,41,.15); }
+
+button[type="submit"] {
+  font: inherit; font-weight: 700; padding: 13px 20px; cursor: pointer;
+  background: var(--red); color: #fff; border: 1.5px solid var(--red); border-radius: 0;
+  align-self: flex-start; min-width: 160px; transition: background .15s;
+}
+button[type="submit"]:hover:not(:disabled) { background: var(--red-dark); border-color: var(--red-dark); }
+button:disabled { background: #bdbdbd !important; border-color: #bdbdbd !important; cursor: not-allowed; }
+
+.examples { margin-top: 32px; }
+.examples p { margin: 0 0 10px; font-size: 13px; color: var(--grey); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: inherit; font-size: 13px; padding: 7px 11px; cursor: pointer;
+  background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 0;
+}
+.chip b { margin-right: 4px; }
+.chip:hover { border-color: var(--red); color: var(--red); }
+
+.output { border: 1.5px solid var(--ink); min-height: 420px; align-self: start; }
+.empty { padding: 40px 28px; color: var(--grey); }
+.bar { height: 4px; width: 56px; background: var(--red); margin-bottom: 16px; }
+.bar.running { width: 100%; background: linear-gradient(90deg, var(--ink), var(--red), var(--ink)); background-size: 200% 100%; animation: slide 1.2s linear infinite; }
+@keyframes slide { to { background-position: -200% 0; } }
+
+.alert { margin: 24px; padding: 16px; border-left: 4px solid var(--red); background: #fff5f6; }
+.alert strong { color: var(--red); }
+.alert p { margin: 6px 0 0; font-size: 14px; }
+
+.result-head {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+  padding: 20px 24px; background: var(--ink); color: #fff;
+}
+.svc { font-size: 12px; color: #b5b5b5; margin-bottom: 4px; }
+.err { font-size: 17px; font-weight: 600; word-break: break-word; }
+.ghost {
+  font: inherit; font-size: 13px; padding: 6px 12px; cursor: pointer;
+  background: transparent; color: #fff; border: 1px solid #fff; border-radius: 0;
+}
+.ghost:hover { background: var(--red); border-color: var(--red); }
+
+.sec { padding: 18px 24px; border-bottom: 1px solid var(--line); }
+.sec h3 { margin: 0 0 6px; font-size: 14px; color: var(--red); }
+.sec p { margin: 0; line-height: 1.65; white-space: pre-wrap; }
+.note { margin: 0; padding: 16px 24px; font-size: 12.5px; color: var(--grey); }
+
+footer { padding: 20px 32px; font-size: 12px; color: var(--grey); border-top: 1px solid var(--line); text-align: center; }
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; padding: 24px 18px; }
+  .top { padding: 14px 18px; }
+  h1 { font-size: 32px; }
+}
